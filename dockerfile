@@ -11,10 +11,10 @@ ADD . /go/src/service_agenda
 
 WORKDIR /go/src/service_agenda
 
-RUN go build -o server main.go
+RUN go build -o server .
 
 WORKDIR cli
-RUN go build -o cli main.go
+RUN go build -o cli .
 
 WORKDIR /go/src/service_agenda
 

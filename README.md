@@ -80,11 +80,11 @@ docker pull ishoping/service_agenda
 ### 综合测试结果
 ### 如何启动服务器
  
-![image](https://github.com/ishoping/service_agenda/blob/master/result_image/start_cli_sh.png)
+![image](https://github.com/ishoping/service_agenda/blob/master/result_image/start_server.png)
 
 ### 如何启动客户端shell
  
-![image](https://github.com/ishoping/service_agenda/blob/master/result_image/start_server.png)
+![image](https://github.com/ishoping/service_agenda/blob/master/result_image/start_cli_sh.png)
 
 #### 更改用户属性
 

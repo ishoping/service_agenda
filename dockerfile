@@ -1,18 +1,23 @@
 FROM golang:1.8
 
-RUN mkdir -p /app
-# RUN mkdir -p /app/data
+RUN mkdir -p /go/src/service_agenda
+RUN mkdir -p /go/src/service_agenda/data
 RUN apt-get update && apt-get install -y --no-install-recommends \
+		apt-utils \
 		sqlite3
 
-VOLUME ["/app/data"]
+VOLUME ["/go/src/service_agenda/data"]
+ADD . /go/src/service_agenda
 
-WORKDIR /app
+WORKDIR /go/src/service_agenda
 
-ADD ./server /app
-ADD ./cli/cli /app
+RUN go build -o server main.go
+
+WORKDIR cli
+RUN go build -o cli main.go
+
+WORKDIR /go/src/service_agenda
 
 EXPOSE 8080
 
-CMD ["/app/server"]
-
+CMD ["/go/src/service_agenda/server"]

@@ -10,10 +10,10 @@ import (
 )
 
 // mock server
-//var host = "https://private-ea20c-agenda16.apiary-mock.com/#"
+var host = "https://private-ea20c-agenda16.apiary-mock.com"
 
 // local server
-var host = "http://localhost:8080"
+//var host = "http://localhost:8080"
 
 // UserPost .
 func UserPost(ur entity.User) int {

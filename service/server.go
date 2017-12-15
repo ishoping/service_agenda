@@ -1,8 +1,6 @@
 package service
 
 import (
-	"service_agenda/entity"
-
 	"github.com/codegangsta/negroni"
 	"github.com/gorilla/mux"
 	"github.com/unrolled/render"
@@ -21,7 +19,6 @@ func NewServer() *negroni.Negroni {
 	initRoutes(mx, formatter)
 
 	n.UseHandler(mx)
-	entity.Connectdb()
 	return n
 }
 

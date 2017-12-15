@@ -1,51 +1,30 @@
 FORMAT: 1A
-HOST: https://agenda16.docs.apiary.io/#
+HOST: https://polls.apiblueprint.org/
 
 # Agenda
 
-Agenda is a simple API allowing consumers to schedule meeting on-line
+Agenda is a simple web service that allows consumers to view polls and vote in them.
 
-# Group Users
+# Agenda API Root [/]
+
+This resource does not have any attributes. Instead it offers the initial API affordances in the form of the links in the JSON body.
+
+It is recommend to follow the “url” link values or Link headers to get to resources instead of constructing your own URLs to keep your client decoupled from implementation details.
+
+## Retrieve the Entry Point [GET]
+
++ Response 200 (application/json)
+
+        {
+            "users_url": "/v1/users",
+            "meeting_url" : "/v1/meetings"
+        }
+
+## Group Users
 
 Resources related to a users in the API.
 
 ## Users Collection [/v1/users]
-
-### User Register [POST]
-
-+ Request (application/json)
-
-        {
-            "name":"zhangsan",
-            "password":"12345",
-            "email":"zhangsan@mail2.sysu.edu.cn",
-            "phone":"13567854211"
-        }
-
-+ Response 201 (application/json)
-
-
-
-        {
-            "name":"zhangsan",
-                "password":"12345",
-                "email":"zhang3@mail2.sysu.edu.cn",
-                "phone":"13567854211"
-            }
-
-### delete User [DELETE /v1/users/{name}]
-
-+ Parameters
-     - name : `zhangsan` (string, required)
-
-+ Request (application/json)
-
-        {
-            "name":"zhangsan",
-            "password":"12345"
-        }
-
-+ Response 204 (application/json)
 
 ### List all Users [GET]
 
@@ -65,8 +44,46 @@ Resources related to a users in the API.
             }
         ]
 
+### User Register [POST]
 
-### Update User by Name [PATCH /v1/users/{name}]
++ Request (application/json)
+
+        {
+            "name":"zhangsan",
+            "password":"12345",
+            "email":"zhangsan@mail2.sysu.edu.cn",
+            "phone":"13567854211"
+        }
+
++ Response 201 (application/json)
+
+        {
+            "name":"zhangsan",
+            "password":"12345",
+            "email":"zhang3@mail2.sysu.edu.cn",
+            "phone":"13567854211"
+        }
+
+## Users [/v1/users/{name}]
+
++ Parameters
+     - name : `zhangsan` (string, required)
+
+### delete User [DELETE]
+
++ Parameters
+     - name : `zhangsan` (string, required)
+
++ Request (application/json)
+
+        {
+            "name":"zhangsan",
+            "password":"12345"
+        }
+
++ Response 204 (application/json)
+
+### Update User by Name [PATCH]
 
 + Parameters
      - name : `zhangsan` (string, required)
@@ -82,7 +99,8 @@ Resources related to a users in the API.
 
 + Response 201 (application/json)
 
-# Group Meetings
+
+## Group Meetings
 
 Resources related to a Meetings in the API.
 
@@ -102,25 +120,21 @@ Resources related to a Meetings in the API.
 
 + Response 201 (application/json)
 
-    + Headers
+        {
+            "sponsor":"zhangsan",
+            "participators":["list"],
+            "startDate":"2017-10-31 20:00",
+            "endDate":"2017-11-3 10:00",
+            "title":"computer"
+        }
 
-            Location: /meetings/computer
-
-    + Body
-
-            {
-                "sponsor":"zhangsan",
-                "participators":["list"],
-                "startDate":"2017-10-31 20:00",
-                "endDate":"2017-11-3 10:00",
-                "title":"computer"
-            }
-
-### Get Meeting by Title [GET /v1/meetings/{title}{?name}]
+## Meeting [/v1/meetings/{title}{?name}]
 
 + Parameters
      - title : `computer` (string, required)
      - name : `zhangsan` (string, required)
+
+### Get Meeting by Title [GET]
 
 + Response 200 (application/json)
 
@@ -132,10 +146,7 @@ Resources related to a Meetings in the API.
             "title":"computer"
         }
 
-### Delete Meeting by Title [DELETE /v1/meetings/{title}]
-
-+ Parameters
-     - title : `computer` (string, required)
+### Delete Meeting by Title [DELETE]
 
 + Request (application/json)
 

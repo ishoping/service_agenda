@@ -1,7 +1,6 @@
 FROM golang:1.8
 
 RUN mkdir -p /go/src/service_agenda
-RUN mkdir -p /go/src/service_agenda/data
 RUN mkdir -p /go/bin
 Run mkdir -p /go/pkg
 RUN apt-get update && apt-get install -y --no-install-recommends \

@@ -5,7 +5,7 @@
 [![Build Status](https://travis-ci.org/ishoping/service_agenda.svg?branch=master)](https://travis-ci.org/ishoping/service_agenda)
  
 ## 下载镜像
-docker pull ishoping/service_agenda:1.0
+docker pull ishoping/service_agenda
  
 ## 项目管理与团队协作
 
@@ -46,10 +46,6 @@ docker pull ishoping/service_agenda:1.0
 - [x] fork 项目的位置
 - [x] 个人工作摘要（每次提交）
 - [x] 项目小结
- 
-### 如何启动服务器
- 
-![image](https://github.com/ishoping/service_agenda/blob/master/result_image/start_server.png)
 
 ### cli的mock测试结果
 #### 更改用户属性
@@ -82,6 +78,14 @@ docker pull ishoping/service_agenda:1.0
 
 
 ### 综合测试结果
+### 如何启动服务器
+ 
+![image](https://github.com/ishoping/service_agenda/blob/master/result_image/start_cli_sh.png)
+
+### 如何启动客户端shell
+ 
+![image](https://github.com/ishoping/service_agenda/blob/master/result_image/start_server.png)
+
 #### 更改用户属性
 
 ![image](https://github.com/ishoping/service_agenda/blob/master/result_image/zonghe_chusr_result.png)

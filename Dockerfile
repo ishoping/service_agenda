@@ -22,12 +22,12 @@ ADD . /go/src/service_agenda
 
 WORKDIR /go/src/service_agenda
 
-RUN go install -o server .
+RUN go build -o server .
 
 WORKDIR cli
-RUN go install -o cli .
+RUN go build -o cli .
 
-WORKDIR /go/bin
+WORKDIR /go/src/service_agenda/cli
 
 EXPOSE 8080
 

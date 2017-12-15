@@ -14,8 +14,12 @@ RUN go get -d -v \
 	github.com/gorilla/mux \
 	github.com/mattn/go-sqlite3 \
 	github.com/spf13/pflag \
-	github.com/unrolled/render
+	github.com/unrolled/render \
+	github.com/mitchellh/go-homedir \
+	github.com/spf13/viper
 
+RUN go get -v \
+	github.com/spf13/cobra
 
 VOLUME ["/go/src/service_agenda/data"]
 ADD . /go/src/service_agenda
